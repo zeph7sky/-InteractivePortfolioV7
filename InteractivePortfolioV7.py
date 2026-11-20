@@ -11,6 +11,30 @@ st.set_page_config(page_title="Custom Portfolio Compounding Simulator", layout="
 st.title("📈 Custom Portfolio Compounding Simulator")
 st.write("Search from 100+ pre-2006 ETFs, set your allocations, and see how compounding and fund fees impact your growth.")
 
+# Smaller summary-card text, wrapped instead of cut off with "...".
+# To change the size, edit the 1.6rem below (default Streamlit size is about 2.25rem).
+st.markdown(
+    """
+    <style>
+    [data-testid="stMetricValue"],
+    [data-testid="stMetricValue"] > div {
+        font-size: 1.6rem;
+        overflow: visible;
+        text-overflow: clip;
+        white-space: normal;
+    }
+    [data-testid="stMetricLabel"],
+    [data-testid="stMetricLabel"] p {
+        font-size: 0.9rem;
+        overflow: visible;
+        text-overflow: clip;
+        white-space: normal;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # --- 3. LOAD APPROVED ETF LIST & PARSE EXPENSE RATIOS FROM CSV ---
 # etfs.csv must sit in the same folder as this file and have the columns:
 # Ticker, ETF Name, Expense Ratio (e.g. "0.0400%").
